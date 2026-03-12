@@ -9,11 +9,11 @@ Colecție de laboratoare practice de criptografie realizate în Python, acoperin
 
 ## 📁 Structură
 
-| Laborator   | Subiect                                       | Fișiere   |
-| ----------- | --------------------------------------------- | --------- |
-| [L2](./L2/) | Numere prime & teste de primalitate           | `main.py` |
-| [L3](./L3/) | Algoritmul lui Euclid extins & invers modular | `main.py` |
-| [L4](./L4/) | Cifrul Hill — decriptare                      | `main.py` |
+| Laborator                | Subiect                                       | Fișiere   |
+| ------------------------ | --------------------------------------------- | --------- |
+| [Criptografie_L2](./L2/) | Numere prime & teste de primalitate           | `main.py` |
+| [Criptografie_L3](./L3/) | Algoritmul lui Euclid extins & invers modular | `main.py` |
+| [Criptografie_L4](./L4/) | Cifrul Hill — decriptare                      | `main.py` |
 
 ---
 
