@@ -34,11 +34,11 @@ Funcții matematice de bază pentru criptografie și testare probabilistică a p
 
 Implementarea algoritmului lui Euclid extins și calculul inversului modular.
 
-| Funcție               | Descriere                                                      |
-| --------------------- | -------------------------------------------------------------- |
-| `cmmdc(a, b)`         | Cel mai mare divizor comun (Euclid iterativ)                   |
-| `euclid_extins(a, b)` | Returnează `(d, x, y)` cu `a*x + b*y = d`                      |
-| `invers(a, m)`        | Inversul lui `a` modulo `m` — returnează `None` dacă nu există |
+| Funcție               | Descriere                                                       |
+| --------------------- | --------------------------------------------------------------- |
+| `cmmdc(a, b)`         | Cel mai mare divizor comun (Euclid iterativ)                    |
+| `euclid_extins(a, b)` | Returnează `(d, x, y)` cu `a*x + b*y = d`                       |
+| `invers(a, m)`        | Inversul lui `a` modulo `m` —> returnează `None` dacă nu există |
 
 **Exemplu:**
 
