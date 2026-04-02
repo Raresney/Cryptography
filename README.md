@@ -14,6 +14,7 @@ Colecție de laboratoare practice de criptografie realizate în Python, acoperin
 | [L2](./Criptografie_L2/) | Numere prime & teste de primalitate           | `main.py` |
 | [L3](./Criptografie_L3/) | Algoritmul lui Euclid extins & invers modular | `main.py` |
 | [L4](./Criptografie_L4/) | Cifrul Hill — decriptare                      | `main.py` |
+| [L7](./Criptografie_L7/) | Criptosistemul RSA & Rabin                    | `helper.py`, `rsa.py`, `rabin.py` |
 
 ---
 
@@ -78,6 +79,37 @@ pairs = [(17,17), (16,26), (29,10), (9,19)]
 
 ---
 
+## 🔑 L7 — Criptosistemul RSA & Rabin
+
+Implementarea completă a criptosistemului RSA (generare chei, criptare, decriptare) și a criptosistemului Rabin.
+
+| Fișier | Descriere |
+| --- | --- |
+| `helper.py` | Funcții auxiliare: CMMDC, exponențiere modulară, invers modular, teste de primalitate, conversii baze |
+| `rsa.py` | Generare chei RSA, criptare și decriptare pe blocuri de text |
+| `rabin.py` | Criptare/decriptare Rabin cu verificare criteriu de formatare (biți repetați) |
+
+**Exemplu RSA:**
+
+```python
+from rsa import RSAKey, RSA
+
+alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+key = RSAKey(n=46927, e=39423, d=0, j=3, l=4, alfabet=alfabet)
+print(RSA("YESTERDAY", key))  # BFICBJHHBIEM
+```
+
+**Exemplu Rabin:**
+
+```python
+from rabin import criptare_Rabin, decriptare_Rabin
+
+c = criptare_Rabin(109, 2021, x=4)       # 982
+radacini, mesaje = decriptare_Rabin(170, 11, 23, x=3)  # m=19
+```
+
+---
+
 ## ⚙️ Cerințe
 
 - Python 3.8+
@@ -96,4 +128,7 @@ python Criptografie_L3/main.py
 
 # L4
 python Criptografie_L4/main.py
+
+# L7
+python Criptografie_L7/rsa.py
 ```

@@ -87,8 +87,3 @@ def get_text(fisier_sursa):
 def write_text(fisier_destinatie, text):
     with open(fisier_destinatie, "w", encoding="utf-8") as f:
         f.write(text)
-
-#print(f"7 este prim? {prim(7)}")
-#print(f"12 este prim? {prim(12)}")
-#print(f"97 este prim? {prim(97)}")
-#print(f"100 este prim? {prim(100)}")
