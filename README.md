@@ -1,134 +1,107 @@
-# 🔐 Criptografie — Laboratoare
+# Cryptography
 
-Colecție de laboratoare practice de criptografie realizate în Python, acoperind algoritmi matematici fundamentali și sisteme de criptare clasice.
+Cryptography labs (Python) + interactive web app (React) covering classical ciphers, modern encryption, hashing, SSL/TLS, and OpenSSL.
 
-> Copyright (c) 2026 Bighiu Rares — [github.com/Raresney](https://github.com/Raresney)  
-> Alexandru Ioan Cuza University of Iași — Matematică & Informatică
-
----
-
-## 📁 Structură
-
-| Laborator                | Subiect                                       | Fișiere   |
-| ------------------------ | --------------------------------------------- | --------- |
-| [L2](./Criptografie_L2/) | Numere prime & teste de primalitate           | `main.py` |
-| [L3](./Criptografie_L3/) | Algoritmul lui Euclid extins & invers modular | `main.py` |
-| [L4](./Criptografie_L4/) | Cifrul Hill — decriptare                      | `main.py` |
-| [L7](./Criptografie_L7/) | Criptosistemul RSA & Rabin                    | `helper.py`, `rsa.py`, `rabin.py` |
+> Copyright (c) 2026 Bighiu Rares — [github.com/Raresney](https://github.com/Raresney)
+> Alexandru Ioan Cuza University of Iasi
 
 ---
 
-## 🔢 L2 — Numere Prime & Miller-Rabin
+## Interactive Web App
 
-Funcții matematice de bază pentru criptografie și testare probabilistică a primalității.
+A dark-themed interactive cryptography toolkit built with React + Vite.
 
-| Funcție                             | Descriere                                      |
-| ----------------------------------- | ---------------------------------------------- |
-| `prim(n)`                           | Verifică dacă `n` e prim (trial division)      |
-| `a_la_b_mod_c(a, b, c)`             | Ridicare la putere modulară: `a^b mod c`       |
-| `cmmdc(a, b)`                       | Cel mai mare divizor comun (Euclid)            |
-| `test_MillerRabin(n, nr_incercari)` | Test probabilistic de primalitate Miller-Rabin |
+**Features:**
+- **CryptoLab** — AES, DES, 3DES encryption/decryption + RSA key generation demo
+- **HashLab** — MD5, SHA-1, SHA-256, SHA-512, RIPEMD-160 hash generator + avalanche effect comparison
+- **SSL/TLS Explorer** — certificate chain visualization, TLS handshake steps, OpenSSL commands reference
+- **Algorithm Visualizer** — step-by-step Caesar cipher and Hill cipher encryption
 
----
+### Run Locally
 
-## 🔗 L3 — Euclid Extins & Invers Modular
-
-Implementarea algoritmului lui Euclid extins și calculul inversului modular.
-
-| Funcție               | Descriere                                                       |
-| --------------------- | --------------------------------------------------------------- |
-| `cmmdc(a, b)`         | Cel mai mare divizor comun (Euclid iterativ)                    |
-| `euclid_extins(a, b)` | Returnează `(d, x, y)` cu `a*x + b*y = d`                       |
-| `invers(a, m)`        | Inversul lui `a` modulo `m` —> returnează `None` dacă nu există |
-
-**Exemplu:**
-
-```python
-invers(7, 30)   # → 13  (7×13 = 91 ≡ 1 mod 30)
-invers(10, 30)  # → None (cmmdc(10,30) = 10 ≠ 1)
+```bash
+cd app
+npm install
+npm run dev
 ```
 
 ---
 
-## 🔐 L4 — Cifrul Hill
+## Python Labs
 
-Decriptarea unui mesaj criptat cu cifrul Hill folosind matricea inversă `A⁻¹`.
+| Lab | Topic | Files |
+| --- | --- | --- |
+| [L2](./Criptografie_L2/) | Prime numbers & Miller-Rabin primality test | `main.py` |
+| [L3](./Criptografie_L3/) | Extended Euclidean algorithm & modular inverse | `main.py` |
+| [L4](./Criptografie_L4/) | Hill cipher — decryption | `main.py` |
+| [L7](./Criptografie_L7/) | RSA & Rabin cryptosystems | `helper.py`, `rsa.py`, `rabin.py` |
 
-**Alfabet:** `ABCDEFGHIJKLMNOPQRSTUVWXYZ?!.` (mod 30)
+### L2 — Prime Numbers & Miller-Rabin
 
-**Matricea de criptare:**
-
-```
-A = (27  7)
-    ( 1 20)
-```
-
-**Matricea inversă calculată:**
-
-```
-A⁻¹ = (10  1)
-      (13  9)
-```
-
-**Exemplu:**
-
-```python
-# Cipertext: RRQ.KJT? → Plaintext: HOGWARTS
-pairs = [(17,17), (16,26), (29,10), (9,19)]
-```
-
----
-
-## 🔑 L7 — Criptosistemul RSA & Rabin
-
-Implementarea completă a criptosistemului RSA (generare chei, criptare, decriptare) și a criptosistemului Rabin.
-
-| Fișier | Descriere |
+| Function | Description |
 | --- | --- |
-| `helper.py` | Funcții auxiliare: CMMDC, exponențiere modulară, invers modular, teste de primalitate, conversii baze |
-| `rsa.py` | Generare chei RSA, criptare și decriptare pe blocuri de text |
-| `rabin.py` | Criptare/decriptare Rabin cu verificare criteriu de formatare (biți repetați) |
+| `prim(n)` | Check if `n` is prime (trial division) |
+| `a_la_b_mod_c(a, b, c)` | Modular exponentiation: `a^b mod c` |
+| `cmmdc(a, b)` | Greatest common divisor (Euclidean) |
+| `test_MillerRabin(n, nr_incercari)` | Miller-Rabin probabilistic primality test |
 
-**Exemplu RSA:**
+### L3 — Extended Euclidean & Modular Inverse
+
+| Function | Description |
+| --- | --- |
+| `cmmdc(a, b)` | GCD (iterative Euclidean) |
+| `euclid_extins(a, b)` | Returns `(d, x, y)` where `a*x + b*y = d` |
+| `invers(a, m)` | Modular inverse of `a mod m` |
+
+```python
+invers(7, 30)   # 13  (7*13 = 91 = 1 mod 30)
+invers(10, 30)  # None (gcd(10,30) = 10 != 1)
+```
+
+### L4 — Hill Cipher
+
+Decryption using inverse matrix `A^-1`. Alphabet: `ABCDEFGHIJKLMNOPQRSTUVWXYZ?!.` (mod 30)
+
+```
+A = (27  7)     A^-1 = (10  1)
+    ( 1 20)            (13  9)
+```
+
+```python
+# Ciphertext: RRQ.KJT? -> Plaintext: HOGWARTS
+```
+
+### L7 — RSA & Rabin Cryptosystems
+
+| File | Description |
+| --- | --- |
+| `helper.py` | GCD, modular exponentiation, modular inverse, primality tests, base conversion |
+| `rsa.py` | RSA key generation, block encryption/decryption |
+| `rabin.py` | Rabin encryption/decryption with formatting criterion |
 
 ```python
 from rsa import RSAKey, RSA
 
-alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-key = RSAKey(n=46927, e=39423, d=0, j=3, l=4, alfabet=alfabet)
+key = RSAKey(n=46927, e=39423, d=0, j=3, l=4, alfabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 print(RSA("YESTERDAY", key))  # BFICBJHHBIEM
 ```
 
-**Exemplu Rabin:**
-
-```python
-from rabin import criptare_Rabin, decriptare_Rabin
-
-c = criptare_Rabin(109, 2021, x=4)       # 982
-radacini, mesaje = decriptare_Rabin(170, 11, 23, x=3)  # m=19
-```
-
 ---
 
-## ⚙️ Cerințe
+## Requirements
 
 - Python 3.8+
-- Nicio bibliotecă externă necesară
+- Node.js 18+ (for the web app)
 
----
-
-## 🛠️ Rulare
+## Run
 
 ```bash
-# L2
+# Python labs
 python Criptografie_L2/main.py
-
-# L3
 python Criptografie_L3/main.py
-
-# L4
 python Criptografie_L4/main.py
-
-# L7
 python Criptografie_L7/rsa.py
+
+# Web app
+cd app && npm install && npm run dev
 ```
