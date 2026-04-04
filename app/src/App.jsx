@@ -63,6 +63,9 @@ function App() {
             <Route path="/ssl" element={<SSLExplorer />} />
             <Route path="/algorithms" element={<AlgorithmViz />} />
           </Routes>
+          <footer className="footer">
+            &copy; 2026 Bighiu Rares. All rights reserved.
+          </footer>
         </main>
       </div>
     </BrowserRouter>
