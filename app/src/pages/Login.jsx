@@ -6,7 +6,7 @@ export default function Login({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (password === 'cryptolab2026') {
+    if (password === 'NUaiGSSHICIT') {
       sessionStorage.setItem('auth', 'true')
       onLogin()
     } else {
