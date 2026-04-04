@@ -80,16 +80,6 @@ export default function Login({ onLogin }) {
             Unlock
           </button>
         </form>
-
-        <p style={{
-          color: 'var(--text-dim)',
-          fontFamily: 'var(--mono)',
-          fontSize: 11,
-          marginTop: 32,
-          opacity: 0.6,
-        }}>
-          &copy; 2026 Bighiu Rares. All rights reserved.
-        </p>
       </div>
     </div>
   )
