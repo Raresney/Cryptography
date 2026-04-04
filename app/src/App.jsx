@@ -1,13 +1,26 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
-import { FiHome, FiLock, FiHash, FiShield, FiCpu, FiGithub } from 'react-icons/fi'
+import { FiHome, FiLock, FiHash, FiShield, FiCpu, FiGithub, FiLogOut } from 'react-icons/fi'
 import Home from './pages/Home'
 import CryptoLab from './pages/CryptoLab'
 import HashLab from './pages/HashLab'
 import SSLExplorer from './pages/SSLExplorer'
 import AlgorithmViz from './pages/AlgorithmViz'
+import Login from './pages/Login'
 import './App.css'
 
 function App() {
+  const [authed, setAuthed] = useState(sessionStorage.getItem('auth') === 'true')
+
+  if (!authed) {
+    return <Login onLogin={() => setAuthed(true)} />
+  }
+
+  function handleLogout() {
+    sessionStorage.removeItem('auth')
+    setAuthed(false)
+  }
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -37,6 +50,9 @@ function App() {
             <a href="https://github.com/Raresney/Cryptography" target="_blank" rel="noreferrer">
               <FiGithub /> Raresney/Cryptography
             </a>
+            <button onClick={handleLogout} className="logout-btn">
+              <FiLogOut /> Logout
+            </button>
           </div>
         </aside>
         <main className="main-content">
