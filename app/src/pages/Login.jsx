@@ -6,7 +6,7 @@ export default function Login({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (password === 'NUaiGSSHICIT') {
+    if (password === import.meta.env.VITE_ACCESS_CODE) {
       sessionStorage.setItem('auth', 'true')
       onLogin()
     } else {
