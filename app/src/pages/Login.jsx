@@ -4,12 +4,22 @@ export default function Login({ onLogin }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    if (password === import.meta.env.VITE_ACCESS_CODE) {
-      sessionStorage.setItem('auth', 'true')
-      onLogin()
-    } else {
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      })
+      if (res.ok) {
+        sessionStorage.setItem('auth', 'true')
+        onLogin()
+      } else {
+        setError(true)
+        setTimeout(() => setError(false), 2000)
+      }
+    } catch {
       setError(true)
       setTimeout(() => setError(false), 2000)
     }
