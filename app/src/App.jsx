@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
-import { FiHome, FiLock, FiHash, FiShield, FiCpu, FiGithub } from 'react-icons/fi'
+import { FiHome, FiLock, FiHash, FiShield, FiCpu, FiGithub, FiHelpCircle, FiBook } from 'react-icons/fi'
+import ThemeToggle from './components/ThemeToggle'
 import Home from './pages/Home'
 import CryptoLab from './pages/CryptoLab'
 import HashLab from './pages/HashLab'
 import SSLExplorer from './pages/SSLExplorer'
 import AlgorithmViz from './pages/AlgorithmViz'
+import Quiz from './pages/Quiz'
+import Glossary from './pages/Glossary'
 import './App.css'
 
 function App() {
@@ -32,8 +35,15 @@ function App() {
             <NavLink to="/algorithms" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <FiCpu className="icon" /> Algorithm Visualizer
             </NavLink>
+            <NavLink to="/quiz" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+              <FiHelpCircle className="icon" /> Quiz
+            </NavLink>
+            <NavLink to="/glossary" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+              <FiBook className="icon" /> Glossary
+            </NavLink>
           </nav>
           <div className="sidebar-footer">
+            <ThemeToggle />
             <a href="https://github.com/Raresney/Cryptography" target="_blank" rel="noreferrer">
               <FiGithub /> Raresney/Cryptography
             </a>
@@ -46,6 +56,8 @@ function App() {
             <Route path="/hash" element={<HashLab />} />
             <Route path="/ssl" element={<SSLExplorer />} />
             <Route path="/algorithms" element={<AlgorithmViz />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/glossary" element={<Glossary />} />
           </Routes>
           <footer className="footer">
             &copy; 2026 Bighiu Rares. All rights reserved.

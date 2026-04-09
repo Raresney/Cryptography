@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import CryptoJS from 'crypto-js'
+import CopyButton from '../components/CopyButton'
+import InfoPanel from '../components/InfoPanel'
+import KeyStrength from '../components/KeyStrength'
 
 export default function CryptoLab() {
   const [text, setText] = useState('')
@@ -104,6 +107,11 @@ export default function CryptoLab() {
         <div className="card">
           <h3>&#128274; Symmetric Encryption</h3>
 
+          <InfoPanel title="What is symmetric encryption?">
+            <p>Symmetric encryption uses the <strong>same key</strong> for both encryption and decryption. It's fast and efficient, used for bulk data encryption.</p>
+            <p style={{ marginTop: 8 }}>AES (128/256-bit) is the modern standard. DES (56-bit) is legacy and considered insecure. 3DES applies DES three times for better security but is slower than AES.</p>
+          </InfoPanel>
+
           <div className="input-group">
             <label>Algorithm</label>
             <select value={algorithm} onChange={e => setAlgorithm(e.target.value)}>
@@ -138,6 +146,7 @@ export default function CryptoLab() {
               onChange={e => setKey(e.target.value)}
               placeholder="Enter encryption key..."
             />
+            <KeyStrength password={key} />
           </div>
 
           <div className="btn-group">
@@ -151,7 +160,10 @@ export default function CryptoLab() {
 
           {output && (
             <div className="output-box">
-              <span className="label">Output</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="label">Output</span>
+                <CopyButton text={output} />
+              </div>
               {output}
             </div>
           )}
@@ -162,6 +174,11 @@ export default function CryptoLab() {
           <p style={{ color: 'var(--text-dim)', fontSize: 13, marginBottom: 16 }}>
             Step-by-step RSA with small primes. See key generation, encryption, and decryption.
           </p>
+
+          <InfoPanel title="What is RSA?">
+            <p>RSA is an <strong>asymmetric</strong> encryption algorithm that uses two different keys: a public key (for encryption) and a private key (for decryption).</p>
+            <p style={{ marginTop: 8 }}>Its security relies on the difficulty of factoring large numbers. The public key can be shared with anyone, while the private key must remain secret.</p>
+          </InfoPanel>
 
           <div className="grid-2">
             <div className="input-group">
@@ -187,7 +204,10 @@ export default function CryptoLab() {
 
           {rsaOutput && (
             <div className="output-box">
-              <span className="label">RSA Output</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="label">RSA Output</span>
+                <CopyButton text={rsaOutput} />
+              </div>
               {rsaOutput}
             </div>
           )}

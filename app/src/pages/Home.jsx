@@ -45,11 +45,34 @@ export default function Home() {
         <Link to="/algorithms" className="home-card">
           <div className="card-icon">&#9881;</div>
           <h3>Algorithm Visualizer</h3>
-          <p>Step-by-step visualization of Caesar cipher, Hill cipher, and RSA encryption/decryption process.</p>
+          <p>Step-by-step visualization of Caesar cipher, Hill cipher, AES rounds, and RSA encryption/decryption.</p>
           <div className="card-tags">
             <span className="tag tag-cyan">Caesar</span>
             <span className="tag tag-purple">Hill</span>
-            <span className="tag tag-green">RSA</span>
+            <span className="tag tag-green">AES</span>
+            <span className="tag tag-yellow">RSA</span>
+          </div>
+        </Link>
+
+        <Link to="/quiz" className="home-card">
+          <div className="card-icon">&#128218;</div>
+          <h3>Quiz</h3>
+          <p>Test your cryptography knowledge with 20 questions across beginner, intermediate, and advanced levels.</p>
+          <div className="card-tags">
+            <span className="tag tag-green">Beginner</span>
+            <span className="tag tag-yellow">Intermediate</span>
+            <span className="tag tag-purple">Advanced</span>
+          </div>
+        </Link>
+
+        <Link to="/glossary" className="home-card">
+          <div className="card-icon">&#128214;</div>
+          <h3>Glossary</h3>
+          <p>Searchable glossary of 30+ cryptography terms with definitions, categories, and related concepts.</p>
+          <div className="card-tags">
+            <span className="tag tag-cyan">30+ terms</span>
+            <span className="tag tag-green">Searchable</span>
+            <span className="tag tag-purple">Interactive</span>
           </div>
         </Link>
       </div>

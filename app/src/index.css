@@ -1,4 +1,5 @@
-:root {
+:root,
+[data-theme="dark"] {
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
   --bg-card: #16161f;
@@ -17,6 +18,25 @@
   --yellow: #ffcc00;
   --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
   --sans: 'Space Grotesk', system-ui, sans-serif;
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f5f7;
+  --bg-card: #ffffff;
+  --bg-input: #f0f1f4;
+  --border: #d0d5dd;
+  --border-glow: #00aa5555;
+  --text: #374151;
+  --text-bright: #111827;
+  --text-dim: #6b7280;
+  --green: #059669;
+  --green-dim: #047857;
+  --green-glow: rgba(5, 150, 105, 0.12);
+  --red: #dc2626;
+  --cyan: #0891b2;
+  --purple: #7c3aed;
+  --yellow: #d97706;
 }
 
 * {
