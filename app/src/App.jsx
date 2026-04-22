@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
-import { FiHome, FiLock, FiHash, FiShield, FiCpu, FiGithub, FiHelpCircle, FiBook } from 'react-icons/fi'
+import { FiHome, FiLock, FiHash, FiShield, FiCpu, FiGithub, FiHelpCircle, FiBook, FiZap } from 'react-icons/fi'
 import ThemeToggle from './components/ThemeToggle'
 import Home from './pages/Home'
 import CryptoLab from './pages/CryptoLab'
@@ -8,6 +8,10 @@ import SSLExplorer from './pages/SSLExplorer'
 import AlgorithmViz from './pages/AlgorithmViz'
 import Quiz from './pages/Quiz'
 import Glossary from './pages/Glossary'
+import Games from './pages/Games'
+import CrackTheCipher from './pages/CrackTheCipher'
+import MemoryMatch from './pages/MemoryMatch'
+import FrequencyAttacker from './pages/FrequencyAttacker'
 import './App.css'
 
 function App() {
@@ -41,6 +45,9 @@ function App() {
             <NavLink to="/glossary" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
               <FiBook className="icon" /> Glossary
             </NavLink>
+            <NavLink to="/games" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+              <FiZap className="icon" /> Games
+            </NavLink>
           </nav>
           <div className="sidebar-footer">
             <ThemeToggle />
@@ -58,6 +65,10 @@ function App() {
             <Route path="/algorithms" element={<AlgorithmViz />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/glossary" element={<Glossary />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/games/crack" element={<CrackTheCipher />} />
+            <Route path="/games/memory" element={<MemoryMatch />} />
+            <Route path="/games/frequency" element={<FrequencyAttacker />} />
           </Routes>
           <footer className="footer">
             &copy; 2026 Bighiu Rares. All rights reserved.
